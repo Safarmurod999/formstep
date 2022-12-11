@@ -22,22 +22,29 @@
   width: 30px;
   height: 30px;
 }
-
+nav {
+  scroll-behavior: smooth;
+}
 header {
+  position: sticky;
+  transition: 0.5s;
+  top: 0;
+  width: 100%;
+  z-index: 111;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #043647;
-  padding: 35px 0;
+  padding: 25px 0;
 }
-.hamburger-btn{
+.hamburger-btn {
   display: none;
   width: 25px;
   height: 25px;
   border: none;
   background-color: transparent;
 }
-.hamburger-btn img{
+.hamburger-btn img {
   width: 100%;
   height: 100%;
 }
@@ -48,7 +55,7 @@ header {
   justify-content: space-between;
   width: 70%;
 }
-#navbar-responsive{
+#navbar-responsive {
   display: none;
 }
 .container ul {
@@ -66,6 +73,13 @@ header {
   font-size: 18px;
   color: #a1b5bb;
   margin: 0 15px;
+}
+nav {
+  padding: 30px 0;
+}
+
+.navbar-shrink {
+  padding: 20px 0;
 }
 #navbar-responsive a {
   display: inline-block;
@@ -166,13 +180,14 @@ header {
   padding: 10px 24px;
 }
 #about {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
 }
 #about .middle {
-  position: relative;
+  position: absolute;
   top: -110px;
   width: 70%;
   display: flex;
@@ -234,6 +249,7 @@ h6 {
   padding-bottom: 100px;
 }
 #services .caption {
+  margin-top: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -263,7 +279,7 @@ h6 {
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: 70%;
 }
 #services .card-item {
@@ -273,7 +289,7 @@ h6 {
   justify-content: center;
   align-items: start;
   background: #ffffff;
-  margin: 0 10px;
+  margin: 10px 10px;
   padding: 15px;
   box-shadow: 0px 41.7776px 33.4221px rgba(0, 0, 0, 0.0503198);
 }
@@ -342,18 +358,22 @@ h6 {
   flex-wrap: wrap;
 }
 #portfolio .design-cards .card {
+  border-left: 1px solid rgb(241, 240, 240);
   width: 40%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: start;
   margin-bottom: 40px;
+  padding-bottom: 10px;
+  box-shadow: 3px 4px 5px -2px rgba(34, 60, 80, 0.2);
 }
 #portfolio img {
   margin-bottom: 25px;
   width: 100%;
 }
 #portfolio h4 {
+  padding-left: 10px;
   font-family: "Inter";
   font-weight: 600;
   font-size: 23px;
@@ -361,6 +381,7 @@ h6 {
   margin-bottom: 10px;
 }
 #portfolio p {
+  padding-left: 10px;
   width: 89%;
   font-family: "Inter";
   font-weight: 400;
@@ -380,6 +401,7 @@ h6 {
   margin: 0;
 }
 #portfolio .go-to a {
+  padding-left: 10px;
   text-decoration: none;
   font-family: "Inter";
   font-weight: 500;
@@ -512,6 +534,9 @@ footer .link-column .social-btns img {
   #services .caption h2 {
     font-size: 27px;
   }
+  #services .caption {
+    margin-top: 160px;
+  }
 }
 @media (max-width: 1024px) {
   #home h1 {
@@ -535,15 +560,24 @@ footer .link-column .social-btns img {
   #about .index-box ul li {
     margin: 10px 15px;
   }
+  #services .caption {
+    margin-top: 140px;
+  }
   .container a,
   .link-box a {
     font-size: 15px;
+  }
+  #services .card-item {
+    width: 45%;
   }
   #services .card-item h4 {
     font-size: 14px;
   }
   #services .card-item p {
     font-size: 11px;
+  }
+  #portfolio .caption h3 {
+    text-align: center;
   }
   #services .caption h2 {
     font-size: 25px;
@@ -565,6 +599,9 @@ footer .link-column .social-btns img {
   }
   #about .middle {
     top: -80px;
+  }
+  #services .caption {
+    margin-top: 130px;
   }
   #services .caption h2 {
     font-size: 20px;
@@ -628,9 +665,47 @@ footer .link-column .social-btns img {
     margin-bottom: 5px;
     font-size: 11px;
   }
+  header .menu {
+    display: none;
+  }
+  .hamburger-btn {
+    display: block;
+  }
+  #navbar-responsive {
+    z-index: 1000;
+    position: absolute;
+    background-color: rgb(6, 59, 77);
+    display: block;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    transition: 1s;
+  }
+  #navbar-responsive a:hover {
+    text-decoration-line: underline;
+  }
+  #navbar-responsive ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    list-style-type: none;
+  }
+  #close-navbar {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
 
   #about .middle {
     padding: 30px 100px;
+  }
+  #services .caption {
+    margin-top: 80px;
   }
   #about .middle h3 {
     font-size: 25px;
@@ -677,7 +752,7 @@ footer .link-column .social-btns img {
     font-size: 13px;
   }
   #about .middle {
-    padding: 30px 100px;
+    padding: 30px 80px;
   }
   #about .middle h3 {
     font-size: 22px;
@@ -715,48 +790,47 @@ footer .link-column .social-btns img {
     margin-left: 10px;
     width: 20px;
   }
+  footer .first img {
+    width: 15px;
+  }
+  footer .link-column .social-btns {
+    margin-top: 10px;
+  }
+  footer .link-column .social-btns img {
+    width: 13px;
+    margin-top: 0;
+  }
+  footer p {
+    font-size: 7px;
+  }
+  footer .link-column h4 {
+    font-size: 14px;
+  }
+  footer .link-column a {
+    font-size: 8px;
+  }
+}
+@media (max-width: 595px) {
+  #services .card-item {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+  #services .caption {
+    margin-top: 40px;
+  }
 }
 @media (max-width: 540px) {
-  header{
+  header {
     height: 60px;
   }
-  header .menu{
+
+  header .menu {
     display: none;
   }
-  .hamburger-btn{
-    display: block;
+  #services .caption {
+    margin-top: 100px;
   }
-  header .menu{
-    display: none;
-  }
-  #navbar-responsive {
-    position: absolute;
-    background-color: rgb(6, 59, 77);
-    display: block;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    transition: 1s;
-  }
-  #navbar-responsive a:hover {
-    text-decoration-line: underline;
-  }
-  #navbar-responsive ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    list-style-type: none;
-  }
-  #close-navbar {
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-  }
+
   #home h1 {
     font-size: 22px;
   }
@@ -778,17 +852,17 @@ footer .link-column .social-btns img {
   #home .text-box .link-box a {
     font-size: 10px;
   }
-  #home .img-box{
+  #home .img-box {
     height: 300px;
   }
-  #about{
+  #about {
     height: 100px;
   }
   #about .middle {
     top: -50px;
-    padding: 20px 60px;
+    padding: 20px 50px;
   }
-  #about .middle p{
+  #about .middle p {
     margin-bottom: 0;
   }
   #about .middle h3 {
@@ -797,12 +871,11 @@ footer .link-column .social-btns img {
   #about .middle h6 {
     font-size: 6px;
   }
-  #services .caption h2
-  {
+  #services .caption h2 {
     font-size: 14px;
   }
-  #services .card-item{
-    width: 40%;
+  #services .card-item {
+    width: 90%;
     margin-bottom: 20px;
   }
   #services .card-item h4 {
@@ -811,7 +884,7 @@ footer .link-column .social-btns img {
   #services .card-item p {
     font-size: 7px;
   }
-  #portfolio{
+  #portfolio {
     padding-bottom: 0px;
   }
   #portfolio .caption h3 {
@@ -824,13 +897,13 @@ footer .link-column .social-btns img {
   #portfolio .design-cards .card p {
     font-size: 7px;
   }
-  #portfolio .design-cards .card h4{
+  #portfolio .design-cards .card h4 {
     font-size: 15px;
   }
-  #blog{
+  #blog {
     padding: 40px 0;
   }
-  #blog .right img{
+  #blog .right img {
     width: 15px;
     margin-bottom: 10px;
   }
@@ -850,71 +923,72 @@ footer .link-column .social-btns img {
     margin-left: 10px;
     width: 15px;
   }
-  footer .first img{
+  footer .first img {
     width: 15px;
-
   }
-  footer .link-column .social-btns{
+  footer .link-column .social-btns {
     margin-top: 10px;
   }
-  footer .link-column .social-btns img{
+  footer .link-column .social-btns img {
     width: 13px;
     margin-top: 0;
   }
-  footer p{
+  footer p {
     font-size: 7px;
   }
-  footer .link-column h4{
+  footer .link-column h4 {
     font-size: 14px;
   }
-  footer .link-column a{
+  footer .link-column a {
     font-size: 8px;
   }
 }
-@media (max-width: 414px){
-
-  header{
+@media (max-width: 414px) {
+  header {
     height: 40px;
     padding-top: 40px;
   }
-  header .container{
+  header .container {
     height: 100%;
   }
-  .hamburger-btn{
+  .hamburger-btn {
     margin-right: 20px;
   }
-  header .container .btn{
+  header .container .btn {
     display: none;
   }
-  header .logo img{
+  header .logo img {
     width: 30px;
   }
   #home {
     padding-top: 50px;
   }
-  #home .text-box{
+  #home .text-box {
     width: 80%;
   }
-  #home .img-box{
+  #home .img-box {
     width: 80%;
     height: 350px;
   }
-  #about .middle{
-    padding: 20px 30px;
+  #about .middle {
+    padding: 15px 20px;
   }
-  #about .middle h3{
+  #about .middle h3 {
     font-size: 10px;
   }
-  #about .middle h6{
+  #about .middle h6 {
     font-size: 5px;
+  }
+  #services .caption {
+    margin-top: 40px;
   }
   #services {
     padding-bottom: 60px;
   }
-  #services .caption h2{
+  #services .caption h2 {
     font-size: 10px;
   }
-  #services .card-item{
+  #services .card-item {
     width: 100%;
   }
   #services .card-item h4 {
@@ -923,10 +997,9 @@ footer .link-column .social-btns img {
   #services .card-item p {
     font-size: 7px;
   }
-  #portfolio .caption{
+  #portfolio .caption {
     width: 45%;
     margin-bottom: 0;
-
   }
   #portfolio .caption h3 {
     font-size: 12px;
@@ -935,20 +1008,20 @@ footer .link-column .social-btns img {
     font-size: 7px;
     margin-bottom: 0;
   }
-  #portfolio .design-cards .card{
+  #portfolio .design-cards .card {
     width: 100%;
   }
   #portfolio .design-cards .card p {
     font-size: 10px;
   }
-  #blog{
+  #blog {
     flex-wrap: wrap;
   }
-  #blog .left{
+  #blog .left {
     width: 80%;
     padding-bottom: 30px;
   }
-  #blog .right{
+  #blog .right {
     width: 80%;
   }
   #blog .right p {
@@ -966,62 +1039,68 @@ footer .link-column .social-btns img {
     margin-left: 10px;
     width: 20px;
   }
-  footer{
+  footer {
     flex-wrap: wrap;
     padding-bottom: 20px;
   }
-  #services .caption h2{
+  #services .caption h2 {
     width: 70%;
   }
-  footer .container{
+  footer .container {
     flex-wrap: wrap;
   }
-  footer .container .link-column{
+  footer .container .link-column {
     width: 30%;
     margin-bottom: 20px;
   }
 }
-@media (max-width:414px){
-  footer .link-column h4{
+@media (max-width: 414px) {
+  footer .link-column h4 {
     font-size: 12px;
   }
-  footer .link-column a{
+  footer .link-column a {
     font-size: 6px;
   }
-  footer .container .first #logo-green{
+  footer .container .first #logo-green {
     width: 25px;
   }
 }
-@media (max-width:280px){
-  #home .img-box{
+@media (max-width: 280px) {
+  #home .img-box {
     height: 200px;
   }
-  #about .middle ul{
-    flex-wrap: wrap;  
+  #services .caption {
+    margin-top: 40px;
   }
-  #services .caption{
+  #about .middle {
+    padding: 10px 0;
+  }
+  #about .middle ul {
+    flex-wrap: wrap;
+  }
+  #services .caption {
     width: 100%;
   }
-  #services .caption h2{
+  #services .caption h2 {
     width: 70%;
   }
-  footer .link-column h4{
+  footer .link-column h4 {
     font-size: 10px;
   }
- 
-  footer .container .link-column p{
+
+  footer .container .link-column p {
     font-size: 5px;
-  } 
-  footer  .link-column a{
+  }
+  footer .link-column a {
     font-size: 6px;
   }
-  footer  .link-column .social-btns img{
+  footer .link-column .social-btns img {
     width: 7px;
   }
-  #blog .right{
+  #blog .right {
     padding-left: 0;
   }
-  #blog .right p{
+  #blog .right p {
     width: 90%;
   }
 }
